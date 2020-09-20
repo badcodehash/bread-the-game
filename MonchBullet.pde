@@ -23,7 +23,7 @@ class MonchBullet{
     this.lifespan=lifespan;
   }
   
-  void display(){
+  void display() {
     ellipseMode(CENTER);
     fill(lifespan);
     ellipse(x,y,size,size);
@@ -33,11 +33,7 @@ class MonchBullet{
   //(they disappear after some time)
   boolean finished() {
     lifespan--;
-    if (lifespan < 0) {
-      return true;
-    } else {
-      return false;
-    }
+  r eturn (lifespan < 0) ? true: false
   }
   
 }
