@@ -33,7 +33,7 @@ class MonchBullet{
   //(they disappear after some time)
   boolean finished() {
     lifespan--;
-  r eturn (lifespan < 0) ? true: false
+    return (lifespan < 0) ? true: false
   }
   
 }
