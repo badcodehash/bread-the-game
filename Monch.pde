@@ -2,10 +2,16 @@
 class Monch{
   float x;
   float y;
+  
+  float velX;
+  float velY;
+  
   int widt;
   int heigh;
+  
   int orientation; //0 = right, 1 = left.
   int bulletAmmount;
+  
   PImage img;
   
   Monch(float x, float y, int widt, int heigh, PImage img, int orientation, int bulletAmmount){
@@ -84,5 +90,9 @@ class Monch{
     noFill();
     strokeWeight(2);
     ellipse(mouseX,mouseY,15,15);    
+  }
+  
+  void jump(){
+    
   }
 }
