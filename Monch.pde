@@ -6,6 +6,9 @@ class Monch{
   float velX;
   float velY;
   
+  float speedyness;
+  float gravity;
+  
   int widt;
   int heigh;
   
@@ -14,7 +17,7 @@ class Monch{
   
   PImage img;
   
-  Monch(float x, float y, int widt, int heigh, PImage img, int orientation, int bulletAmmount){
+  Monch(float x, float y, int widt, int heigh, PImage img, int orientation, int bulletAmmount, float speedyness, float gravity){
     this.x=x;
     this.y=y;
     this.widt=widt;
@@ -22,6 +25,8 @@ class Monch{
     this.orientation=orientation;
     this.img=img;
     this.bulletAmmount=bulletAmmount;
+    this.speedyness=speedyness;
+    this.gravity=gravity;
   }
   
   //shows monch :3
@@ -78,12 +83,27 @@ class Monch{
     }
   }
   
-  void moveLeft(){
-    x-=5;
+  //guess the fuck those do, sherlock
+  void move(){
+    x += velX;
   }
-  void moveRight(){
-    x+=5;
+  
+  
+  void jump(){
+    // Add gravity to speed
+    velY = velY + gravity;
+    // Add speed to y location
+    y = y + velY;
+    // If monch reaches the bottom
+    // Reverse speed
+    if (y > 300) {
+      // Dampening
+      //velY = velY * -0.8;
+      y = 300;
+      velY=0;
+    }
   }
+  
   
   //shows circle on the screen (aim)
   void displayAim(){
@@ -92,7 +112,5 @@ class Monch{
     ellipse(mouseX,mouseY,15,15);    
   }
   
-  void jump(){
-    
-  }
+  
 }
